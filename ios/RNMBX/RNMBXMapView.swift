@@ -246,7 +246,7 @@ open class RNMBXMapView: UIView, RCTInvalidating {
     if let mapViewImpl = mapViewImpl, let mapViewInstance = createAndAddMapViewImpl(mapViewImpl, self) {
       _mapView = mapViewInstance
     } else {
-      _mapView = MapView(frame: self.bounds, mapInitOptions:  MapInitOptions())
+      _mapView = MapView(frame: self.bounds, mapInitOptions:  MapInitOptions(styleURI: nil))
       _mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       addSubview(_mapView)
     }

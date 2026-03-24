@@ -1213,11 +1213,12 @@ open class RNMBXMapView(private val mContext: Context, var mManager: RNMBXMapVie
             }
         }
         if (!created) {
-            var options: MapInitOptions? = null
-            if (surfaceView == false) {
-                options = MapInitOptions(context = mContext, textureView = true)
+            val options = if (surfaceView == false) {
+                MapInitOptions(context = mContext, styleUri = "", textureView = true)
+            } else {
+                MapInitOptions(context = mContext, styleUri = "")
             }
-            val mapView = if (options != null) MapView(mContext, options) else MapView(mContext)
+            val mapView = MapView(mContext, options)
             mMapView = mapView
 
 
